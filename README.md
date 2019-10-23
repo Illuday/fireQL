@@ -28,7 +28,7 @@ const schema = gql`
   }
 `
 ``` 
-<center>functions/graphql/schema.js</center><br>
+<p align="center">functions/graphql/schema.js</p><br>
 
 <p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
 
@@ -45,7 +45,7 @@ const schema = gql`
   }
 `
 ```
-<center><span style="color:#CCC">functions/graphql/schema.js</span></center>
+<p align="center"><span style="color:#CCC">functions/graphql/schema.js</span></p>
 
 ### <span style="color:#888">2 - Adding the mutation to our resolvers</span>
 
@@ -59,9 +59,9 @@ const resolverFunctions = {
   },
 };
 ```
-<center><span style="color:#CCC">functions/graphql/resolvers.js</span></center>
+<p align="center" style="font-family:Papyrus; font-size:4em;">functions/graphql/resolvers.js</p>
 
-### <span style="color:#888">3 - Executing mutation</span>
+### 3 - Executing mutation
 
 Go to your GQL playground and execute your mutation. There, we want to add an artist named "illuday", and get his id and his name (probably illuday...).
 
@@ -76,9 +76,9 @@ mutation {
   }
 }
 ```
-<center><span style="color:#CCC">localhost:5001/your-fire-hosting/api</span></center>
+<p align="center"><span style="color:#CCC">localhost:5001/your-fire-hosting/api</span></p>
 
-### <span style="color:#888">Result - That's it...</span>
+### Result - That's it...
 
 ```json
 {
@@ -90,7 +90,7 @@ mutation {
   }
 }
 ```
-<center><span style="color:#CCC">Mutation result - localhost:5001/your-fire-hosting/api</span></center>
+<p align="center"><span style="color:#CCC">Mutation result - localhost:5001/your-fire-hosting/api</span></p>
 
 In firestore, you can see that you have your document, added to artists collection with "illuday" as name.
 
