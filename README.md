@@ -1,6 +1,5 @@
 
-<p align="center"><img align="center" style="width:320px" src="
-https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/logo.png?alt=media&token=13f257f8-8668-49a6-b41f-6dcbdd666dd1"/></p>
+<p align="center"><img align="center" style="width:320px" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/logo.png?alt=media&token=daa6fc42-7572-4a6a-beb9-a1b1dff6cea5"/></p>
 
 > FireQL is a GraphQL connector for Firestore (Firebase database). This repository offer a boilerplate to auto-host a GraphQL server on your Firebase Project (hosting part) connecting to Firestore on the same project.
 
