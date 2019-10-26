@@ -394,6 +394,7 @@ mutation updateIlludayAge { # <-- This is just a name for GQL playground
 ```
 
 <p align="center">:arrow_down:</p><br>
+
 ```javascript
 {
   "data": {
@@ -452,6 +453,7 @@ mutation removeIlluday { # <-- This is just a name for GQL playground
 ```
 
 <p align="center">:arrow_down:</p><br>
+
 ```javascript
 {
   "data": {
@@ -588,6 +590,7 @@ mutation addAnArtistWithArtworks {
 ```
 
 <p align="center">:arrow_down:</p><br>
+
 ```javascript
 {
   "data": {
@@ -638,6 +641,7 @@ mutation updateAnArtistWithArtworks {
 ```
 
 <p align="center">:arrow_down:</p><br>
+
 ```javascript
 {
   "data": {
@@ -676,6 +680,7 @@ query getIlluday {
 ```
 
 <p align="center">:arrow_down:</p><br>
+
 ```javascript
 {
   "data": {
