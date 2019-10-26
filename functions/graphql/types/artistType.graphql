@@ -1,0 +1,15 @@
+type Artist {
+  id: ID
+  name: String!
+  age: Int!
+  artworks: [Artwork]
+}
+
+type Mutation {
+  addArtist(name: String!, age: Int!, artworks: [AddArtworkInput]): Artist
+  updateArtist(id: ID!, name: String, age: Int, artworks: [UpdateArtworkInput]): Artist
+}
+
+type Query {
+  getArtists(where: WhereInput): [Artist]
+}

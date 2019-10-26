@@ -1,0 +1,35 @@
+type Artwork {
+  id: ID
+  name: String
+  artist: Artist
+}
+
+input ArtworkInput {
+  name: String
+}
+
+input AddArtworkInput {
+  collection: String = "artworks"
+  on: String = "artist"
+
+  connect: ID
+  create: ArtworkInput
+}
+
+input UpdateArtworkInput {
+  collection: String = "artworks"
+  on: String = "artist" # IF !ARRAY : REMOVE ENTITY CIBLE
+
+  connect: ID
+  remove: ID
+  create: ArtworkInput
+}
+
+type Mutation {
+  addArtwork(name: String): Artwork,
+  updateArtwork(id: ID!, name: String): Artwork
+}
+
+type Query {
+  getArtworks(where: WhereInput): [Artwork]
+}

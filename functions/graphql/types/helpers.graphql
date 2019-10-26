@@ -1,0 +1,19 @@
+enum Operator {
+  EQ
+  GT
+  GTE
+  LT
+  LTE
+  INARRAY
+}
+
+input IntOrStringInput {
+  intValue: Int
+  stringValue: String
+}
+
+input WhereInput {
+  field: String
+  operator: Operator
+  value: IntOrStringInput
+}

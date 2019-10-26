@@ -14,7 +14,7 @@
 - **[#](#3) Add documents** – *Adding a mutation to our schema, to our resolvers, execute it*
 - **[#](#4) Get documents** – *Adding a query to our schema, to our resolvers, execute it*
 - **[#](#5) Update documents** – *Adding a mutation to our schema, to our resolvers, execute it*
-- **[#](#6) Remove documents** – *Adding a mutation to our schema, to our resolvers, execute it*
+- **[#](#6) Remove documents** – *Adding a mutation to our schema, to our resolvers, execute it* - (in development)
 - **[#](#7) Working with relations** – *Updating our type, adding inputs, execute fun queries & mutations*
 
 <br/><p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
@@ -161,8 +161,7 @@ mutation {
 ```
 ###### <p align="center">Mutation - Playground</p>
 
-<p align="center">:arrow_down:</p><br/>
-
+<p align="center">:arrow_down:</p><br>
 ```json
 {
   "data": {
@@ -173,7 +172,6 @@ mutation {
   }
 }
 ```
-
 ###### <p align="center">Mutation result - Playground</p>
 
 In firestore, you can see that you have your document, added to artists collection with "illuday" as name and 28 as age.
@@ -258,7 +256,6 @@ query getAllArtists { # <-- This is just a name for GQL playground
 }
 ```
 <p align="center">:arrow_down:</p><br>
-
 ```javascript
 {
   "data": {
@@ -303,7 +300,6 @@ query getArtistById { # <-- This is just a name for GQL playground
 ```
 
 <p align="center">:arrow_down:</p><br>
-
 ```javascript
 {
   "data": {
@@ -317,7 +313,6 @@ query getArtistById { # <-- This is just a name for GQL playground
   }
 }
 ```
-
 <hr>
 
 #### <p align="center">GET ARTISTS BY AGE</p>
@@ -332,7 +327,6 @@ query getArtistsByAge { # <-- This is just a name for GQL playground
 ```
 
 <p align="center">:arrow_down:</p><br>
-
 ```javascript
 {
   "data": {
@@ -417,7 +411,7 @@ mutation updateIlludayAge { # <-- This is just a name for GQL playground
 
 #### <p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
 
-## <a name="6"></a>Removing document
+## <a name="6"></a>Removing document - (in development)
 
 ### 1 - Adding the mutation to our schema</span>
 
@@ -630,14 +624,16 @@ mutation addAnArtistWithArtworks {
 
 **And the result ?** You can see that as we added relations in our **artist** types, we can query directly its **artworks** on results (queries, mutations). Yeah!
 
-#### <p align="center">UPDATE AN ARTIST, CREATE AN ARTWORK AND REMOVE ONE AT THE SAME TIME</p>
+#### <p align="center">UPDATE AN ARTIST AND REMOVE ONE ARTWORK</p>
+
+***Note:** Due to a Firebase limitation (arrayUnion / arrayRemove), you can't add and remove at the same time.*
+
 
 ```javascript
 mutation updateAnArtistWithArtworks {
   updateArtist(
     id: "xyseptoQ7WBBRr8XAl4U", # illuday
     artworks: [
-      { create: { name: "ACTIVITOUR" } }, # NEW ARTWORK
       { remove: "W7rgj1Lkc4HAruuMMmX2" }, # BLACKLIST
     ]
   ) {
@@ -664,10 +660,6 @@ mutation updateAnArtistWithArtworks {
         {
           "id": "WDwGd4LwjZGfsFEALOi7",
           "name": "NYNDOR"
-        },
-        {
-          "id": "nTTtND8HyktG30IQzO5M",
-          "name": "ACTIVITOUR"
         }
       ]
     }
