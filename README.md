@@ -103,15 +103,13 @@ Todo.
 To create a type, just add it in the schema. You can add as much type you need. **We'll come back on relations later**.
 
 ```javascript
-const schema = gql`
-  type Artist {
+type Artist {
     id: ID
     name: String!
     age: Int!
-  }
-`
+}
 ```
-###### <p align="center">functions/graphql/schema.js</p><br>
+###### <p align="center">functions/graphql/types/artistType.graphql</p><br>
 
 <p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
 ## <a name="3"></a>Add document to our type
@@ -121,13 +119,11 @@ const schema = gql`
 ### 1 - Adding the mutation to our schema
 
 ```javascript
-const schema = gql`
-  type Mutation {
+type Mutation {
     addArtist(name: String!, age: Int!): Artist
-  }
-`
+}
 ```
-###### <p align="center">functions/graphql/schema.js</p>
+###### <p align="center">functions/graphql/types/artistType.graphql</p>
 
 ### 2 - Adding the mutation to our resolvers
 
@@ -162,7 +158,6 @@ mutation {
 ###### <p align="center">Mutation - Playground</p>
 
 <p align="center">:arrow_down:</p><br>
-
 ```json
 {
   "data": {
@@ -191,13 +186,11 @@ Magic.
 ### 1 - Adding the query to our schema</span>
 
 ```javascript
-const schema = gql`
-  type Query {
+type Query {
     getArtists(where: WhereInput): [Artist]
-  }
-`
+}
 ```
-###### <p align="center">functions/graphql/schema.js</p>
+###### <p align="center">functions/graphql/types/artistType.graphql</p>
 
 **The result value of this query is [Artist], it'll return an Array of Artist type.**
 
@@ -258,7 +251,6 @@ query getAllArtists { # <-- This is just a name for GQL playground
 }
 ```
 <p align="center">:arrow_down:</p><br>
-
 ```javascript
 {
   "data": {
@@ -303,7 +295,6 @@ query getArtistById { # <-- This is just a name for GQL playground
 ```
 
 <p align="center">:arrow_down:</p><br>
-
 ```javascript
 {
   "data": {
@@ -332,7 +323,6 @@ query getArtistsByAge { # <-- This is just a name for GQL playground
 ```
 
 <p align="center">:arrow_down:</p><br>
-
 ```javascript
 {
   "data": {
@@ -357,12 +347,10 @@ query getArtistsByAge { # <-- This is just a name for GQL playground
 ### 1 - Adding the mutation to our schema</span>
 
 ```javascript
-const schema = gql`
-  type Mutation {
+type Mutation {
     ...,
     updateArtist(id: ID!, name: String, age: Int): Artist
-  }
-`
+}
 ```
 
 ###### <p align="center">functions/graphql/types/artistType.graphql</p>
@@ -402,7 +390,6 @@ mutation updateIlludayAge { # <-- This is just a name for GQL playground
 ```
 
 <p align="center">:arrow_down:</p><br>
-
 ```javascript
 {
   "data": {
@@ -422,15 +409,13 @@ mutation updateIlludayAge { # <-- This is just a name for GQL playground
 ### 1 - Adding the mutation to our schema</span>
 
 ```javascript
-const schema = gql`
-  type Mutation {
+type Mutation {
     ...,
     removeArtist(id: ID!): Artist
-  }
-`
+}
 ```
 
-###### <p align="center">functions/graphql/schema.js</p>
+###### <p align="center">functions/graphql/types/artistType.graphql</p>
 
 ### 2 - Adding the mutation to our resolvers
 
@@ -463,7 +448,6 @@ mutation removeIlluday { # <-- This is just a name for GQL playground
 ```
 
 <p align="center">:arrow_down:</p><br>
-
 ```javascript
 {
   "data": {
@@ -500,7 +484,7 @@ type Artist {
 }
 ```
 
-###### <p align="center">functions/graphql/schema.js</p>
+###### <p align="center">functions/graphql/types/artistType.graphql & types/artworkType.graphql</p>
 
 **Follow steps above to create basics queries & mutations for the new type**
 
@@ -534,7 +518,7 @@ input UpdateArtworkInput {
 }
 ```
 
-###### <p align="center">functions/graphql/schema.js</p>
+###### <p align="center">functions/graphql/types/artworkType.graphql</p>
 
 Back to these inputs:
 
@@ -573,7 +557,7 @@ Now that we have inputs, we can adjust our mutations "addArtist" and "updateArti
  }
 ```
 
-###### <p align="center">functions/graphql/schema.js</p>
+###### <p align="center">functions/graphql/types/artistType.graphql</p>
 
 That's it! Let's play with it.
 
@@ -600,7 +584,6 @@ mutation addAnArtistWithArtworks {
 ```
 
 <p align="center">:arrow_down:</p><br>
-
 ```javascript
 {
   "data": {
@@ -651,7 +634,6 @@ mutation updateAnArtistWithArtworks {
 ```
 
 <p align="center">:arrow_down:</p><br>
-
 ```javascript
 {
   "data": {
@@ -690,7 +672,6 @@ query getIlluday {
 ```
 
 <p align="center">:arrow_down:</p><br>
-
 ```javascript
 {
   "data": {
