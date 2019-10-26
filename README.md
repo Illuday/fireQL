@@ -158,6 +158,7 @@ mutation {
 ###### <p align="center">Mutation - Playground</p>
 
 <p align="center">:arrow_down:</p><br>
+
 ```json
 {
   "data": {
@@ -251,6 +252,7 @@ query getAllArtists { # <-- This is just a name for GQL playground
 }
 ```
 <p align="center">:arrow_down:</p><br>
+
 ```javascript
 {
   "data": {
@@ -295,6 +297,7 @@ query getArtistById { # <-- This is just a name for GQL playground
 ```
 
 <p align="center">:arrow_down:</p><br>
+
 ```javascript
 {
   "data": {
@@ -323,6 +326,7 @@ query getArtistsByAge { # <-- This is just a name for GQL playground
 ```
 
 <p align="center">:arrow_down:</p><br>
+
 ```javascript
 {
   "data": {
