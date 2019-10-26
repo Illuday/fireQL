@@ -112,6 +112,7 @@ type Artist {
 ###### <p align="center">functions/graphql/types/artistType.graphql</p><br>
 
 <p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
+
 ## <a name="3"></a>Add document to our type
 
 ***For non GQL user:** Compare to a restAPI, a resolver is a GraphQL "route", a mutation will represent a put/patch route with parameters.*
