@@ -5,7 +5,7 @@
 
 > FireQL is a GraphQL connector for Firestore (Firebase database). This repository offer a boilerplate to auto-host a GraphQL server on your Firebase Project (hosting part) connecting to Firestore on the same project.
 
-> **At the moment, use this repository at your own risk, I can't assure the continuity of this project. It'll depends of the popularity of it.**
+> **At the moment, use this repository at your own risk, I can't assure the continuity of this project. It's more an experiment for my personnals works than a real technology for en every day use. I'll make it more usable depending of its popularity.**
 
 # <p align="center">Summary</p>
 
@@ -15,7 +15,7 @@
 - **[#](#4) Get documents** – *Adding a query to our schema, to our resolvers, execute it*
 - **[#](#5) Update documents** – *Adding a mutation to our schema, to our resolvers, execute it*
 - **[#](#6) Remove documents** – *Adding a mutation to our schema, to our resolvers, execute it*
-- **[#](#7) Working with relations** – *Updating our type, adding*
+- **[#](#7) Working with relations** – *Updating our type, adding inputs, execute fun queries & mutations*
 
 <br/><p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
 
@@ -110,16 +110,15 @@ const schema = gql`
     age: Int!
   }
 `
-``` 
+```
 ###### <p align="center">functions/graphql/schema.js</p><br>
 
 <p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
-
 ## <a name="3"></a>Add document to our type
 
 ***For non GQL user:** Compare to a restAPI, a resolver is a GraphQL "route", a mutation will represent a put/patch route with parameters.*
 
-### 1 - Adding the mutation to our schema</span>
+### 1 - Adding the mutation to our schema
 
 ```javascript
 const schema = gql`
@@ -130,7 +129,7 @@ const schema = gql`
 ```
 ###### <p align="center">functions/graphql/schema.js</p>
 
-### 2 - Adding the mutation to our resolvers</span>
+### 2 - Adding the mutation to our resolvers
 
 FireQL is my magical library to connect our graphQL server to our firestore. FireQL.add() will automatically add the new artist to our firestore collection "artists".
 
@@ -163,7 +162,6 @@ mutation {
 ###### <p align="center">Mutation - Playground</p>
 
 <p align="center">:arrow_down:</p><br>
-
 ```json
 {
   "data": {
@@ -216,7 +214,7 @@ const schema = gql`
 
 ***Note:** This helper is already provide in your schema from this repository.*
 
-### 2 - Adding the query to our resolvers</span>
+### 2 - Adding the query to our resolvers
 
 FireQL.get() will automatically get artists from our firestore collection "artists".
 
@@ -239,17 +237,17 @@ Before executing this query, I seed my database to have more artists.
 
 - illuday: 28y/o
 - Anna Dittmann: 26y/o
-- Ilya Kuvshinov: 26y/o
+- Ilya Kuvshinov: 29y/o
 - Shayline: 27y/o
 
 Let's make some tries in our GraphQL playground.
 
-***Note:** I named my queries (in playground) to be able to save them all.* 
+_**Note:** I named my queries (in playground) to be able to save them all._
 
 #### <p align="center">GET ALL ARTISTS</p>
 
 ```javascript
-query getAllArtists {
+query getAllArtists { # <-- This is just a name for GQL playground
   getArtists {
     id
     name
@@ -258,7 +256,6 @@ query getAllArtists {
 }
 ```
 <p align="center">:arrow_down:</p><br>
-
 ```javascript
 {
   "data": {
@@ -293,7 +290,7 @@ query getAllArtists {
 #### <p align="center">GET ARTIST BY ID</p>
 
 ```javascript
-query getArtistById {
+query getArtistById { # <-- This is just a name for GQL playground
   getArtists (where: { field: "id", value: { stringValue: "TgI9PYG4p7OKzrOBmzmD" } }){
     id
     name
@@ -303,7 +300,6 @@ query getArtistById {
 ```
 
 <p align="center">:arrow_down:</p><br>
-
 ```javascript
 {
   "data": {
@@ -322,7 +318,7 @@ query getArtistById {
 #### <p align="center">GET ARTISTS BY AGE</p>
 
 ```javascript
-query getArtistsByAge {
+query getArtistsByAge { # <-- This is just a name for GQL playground
   getArtists (where: { field: "age", operator: LT, value: { intValue: 28 } }){
     name
     age
@@ -331,7 +327,6 @@ query getArtistsByAge {
 ```
 
 <p align="center">:arrow_down:</p><br>
-
 ```javascript
 {
   "data": {
@@ -350,3 +345,373 @@ query getArtistsByAge {
 ```
 
 <br/><p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
+
+## <a name="5"></a>Update document
+
+### 1 - Adding the mutation to our schema</span>
+
+```javascript
+const schema = gql`
+  type Mutation {
+    ...,
+    updateArtist(id: ID!, name: String, age: Int): Artist
+  }
+`
+```
+
+###### <p align="center">functions/graphql/schema.js</p>
+
+### 2 - Adding the mutation to our resolvers
+
+FireQL.update() will automatically update the artist in our firestore collection "artists".
+
+```javascript
+const resolverFunctions = {
+  Query: {
+	...
+  },
+  Mutation: {
+    ...,
+    updateArtist: (parent, document) => FireQL.update({ collectionName: 'artists', document }),
+  },
+};
+```
+
+###### <p align="center">functions/graphql/resolvers.js</p>
+
+### 3 - Executing mutation
+
+Let's say we want to modify "illuday" age.
+
+#### <p align="center">UPDATE ILLUDAY AGE</p>
+
+```javascript
+mutation updateIlludayAge { # <-- This is just a name for GQL playground
+  updateArtist(id: "GF0ihzKePxeKZMRTjY7A", age: 38) {
+    id
+    name
+    age
+  }
+}
+```
+
+<p align="center">:arrow_down:</p><br>
+
+```javascript
+{
+  "data": {
+    "updateArtist": {
+      "id": "GF0ihzKePxeKZMRTjY7A",
+      "name": "illuday",
+      "age": 38
+    }
+  }
+}
+```
+
+#### <p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
+
+## <a name="6"></a>Removing document
+
+### 1 - Adding the mutation to our schema</span>
+
+```javascript
+const schema = gql`
+  type Mutation {
+    ...,
+    removeArtist(id: ID!): Artist
+  }
+`
+```
+
+###### <p align="center">functions/graphql/schema.js</p>
+
+### 2 - Adding the mutation to our resolvers
+
+FireQL.remove() will automatically remove the artist in our firestore collection "artists".
+
+```javascript
+const resolverFunctions = {
+  Query: {
+	...
+  },
+  Mutation: {
+    ...,
+    removeArtist: (parent, document) => FireQL.remove({ collectionName: 'artists', document }),
+  },
+};
+```
+
+###### <p align="center">functions/graphql/resolvers.js</p>
+
+### 3 - Executing mutation
+
+#### <p align="center">REMOVE ILLUDAY</p>
+
+```javascript
+mutation removeIlluday { # <-- This is just a name for GQL playground
+  removeArtist(id: "GF0ihzKePxeKZMRTjY7A") {
+    id
+  }
+}
+```
+
+<p align="center">:arrow_down:</p><br>
+
+```javascript
+{
+  "data": {
+    "removeArtist": {
+      "id": "GF0ihzKePxeKZMRTjY7A"
+    }
+  }
+}
+```
+
+
+#### <p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
+
+## <a name="7"></a>Working with relations
+
+***Note:** in FireQL, all relations must be bi-directionnal.*
+
+### 1 - Adding a new type and create a relation
+
+Artists have **MANY** artworks, artworks have **ONE** artist.
+
+```javascript
+type Artwork {
+    id: ID
+    name: String
+    artist: Artist
+}
+
+type Artist {
+    id: ID
+    name: String!
+    age: Int!
+    artworks: [Artwork]
+}
+```
+
+###### <p align="center">functions/graphql/schema.js</p>
+
+**Follow steps above to create basics queries & mutations for the new type**
+
+### 2 - Modifying Artwork mutation to handle relation management
+
+We need to create our **inputs** before modifying our addArtist & updateArtist mutations. They'll allows those things:
+
+- Add **artworks** when we add an **artist**
+- Update / Remove **artworks** when we update **artist**
+
+```javascript
+input ArtworkInput {
+    name: String
+}
+
+input AddArtworkInput {
+    collection: String = "artworks"
+    on: String = "artist"
+
+    connect: ID
+    create: ArtworkInput
+}
+
+input UpdateArtworkInput {
+    collection: String = "artworks"
+    on: String = "artist"
+
+    connect: ID
+    remove: ID
+    create: ArtworkInput
+}
+```
+
+###### <p align="center">functions/graphql/schema.js</p>
+
+Back to these inputs:
+
+- **ArtworkInput**: Represent fields we can fill when we create an artwork
+
+- **AddArtworkInput**:
+
+  | Argument   | Value               | Description                                                  |
+  | ---------- | ------------------- | ------------------------------------------------------------ |
+  | collection | String = "artworks" | Name of the collection linked, set **artworks by default**. You'll never have to change that. |
+  | on         | String = "artist"   | Foreign field for our relation, set **artwork by default**. You'll never have to change that. ***Note**: In case of a One to Many or Many to Many relations you'll have to write [String] = ['artists'].* |
+  | connect*   | ID                  | The id of artwork you want to connect with.                  |
+  | create*    | ArtworkInput        | The input of artwork you want to create then link.           |
+
+  *one of these must be fill when you execute the mutation
+
+- **UpdateArtworkInput**:
+
+  | Argument   | Value               | Description                                                  |
+  | ---------- | ------------------- | ------------------------------------------------------------ |
+  | collection | String = "artworks" | Name of the collection linked, set **artworks by default**. You'll never have to change that. |
+  | on         | String = "artist"   | Foreign field for our relation, set **artwork by default**. You'll never have to change that. ***Note**: In case of a One to Many or Many to Many relations you'll have to write [String] = ['artists'].* |
+  | connect*   | ID                  | The id of an artwork you want to connect with.               |
+  | remove*    | ID                  | The id of an artwork you want to remove. ***Note**: In case of a Many to One or One to one relations, the artwork will be removed from the database* |
+  | create*    | ArtworkInput        | The input of artwork you want to create then link.           |
+
+  *one of these must be fill when you execute the mutation
+
+Now that we have inputs, we can adjust our mutations "addArtist" and "updateArtist".
+
+```javascript
+ type Mutation {
+    addArtist(name: String!, age: Int!, artworks: [AddArtworkInput]): Artist
+    updateArtist(id: ID!, name: String, age: Int, artworks: [UpdateArtworkInput]): Artist
+    ...
+ }
+```
+
+###### <p align="center">functions/graphql/schema.js</p>
+
+That's it! Let's play with it.
+
+### 3 - Executing mutations
+
+#### <p align="center">ADD AN ARTIST AND CREATE ARTWORKS AT THE SAME TIME</p>
+
+```javascript
+mutation addAnArtistWithArtworks {
+  addArtist(
+    name: "illuday", 
+    age: 28, 
+    artworks: [
+      { create: { name: "MIRAMARKA" } }, # NEW ARTWORK
+      { create: { name: "BLACKLIST" } }, # NEW ARTWORK
+      { connect: "WDwGd4LwjZGfsFEALOi7" } # EXISTING ARTWORK
+    ]
+  ) {
+    id
+    name
+    artworks { id name } # WAIT WHAT ?
+  }
+}
+```
+
+<p align="center">:arrow_down:</p><br>
+
+```javascript
+{
+  "data": {
+    "addArtist": {
+      "id": "xyseptoQ7WBBRr8XAl4U",
+      "name": "illuday",
+      "artworks": [
+        {
+          "id": "NmgdsLrNgzIiIUaRFkef",
+          "name": "MIRAMARKA"
+        },
+        {
+          "id": "W7rgj1Lkc4HAruuMMmX2",
+          "name": "BLACKLIST"
+        },
+        {
+          "id": "WDwGd4LwjZGfsFEALOi7",
+          "name": "NYNDOR"
+        }
+      ]
+    }
+  }
+}
+```
+
+**So, what happens there ?** We inserted an new artist in our database, named illuday, we decided to create at the same time two new artworks and connect an already existing one. References between the artist and artworks are automatically set by FireQL.
+
+**And the result ?** You can see that as we added relations in our **artist** types, we can query directly its **artworks** on results (queries, mutations). Yeah!
+
+#### <p align="center">UPDATE AN ARTIST, CREATE AN ARTWORK AND REMOVE ONE AT THE SAME TIME</p>
+
+```javascript
+mutation updateAnArtistWithArtworks {
+  updateArtist(
+    id: "xyseptoQ7WBBRr8XAl4U", # illuday
+    artworks: [
+      { create: { name: "ACTIVITOUR" } }, # NEW ARTWORK
+      { remove: "W7rgj1Lkc4HAruuMMmX2" }, # BLACKLIST
+    ]
+  ) {
+    id
+    name
+    artworks { id name }
+  }
+}
+```
+
+<p align="center">:arrow_down:</p><br>
+
+```javascript
+{
+  "data": {
+    "updateArtist": {
+      "id": "xyseptoQ7WBBRr8XAl4U",
+      "name": "illuday",
+      "artworks": [
+        {
+          "id": "NmgdsLrNgzIiIUaRFkef",
+          "name": "MIRAMARKA"
+        },
+        {
+          "id": "WDwGd4LwjZGfsFEALOi7",
+          "name": "NYNDOR"
+        },
+        {
+          "id": "nTTtND8HyktG30IQzO5M",
+          "name": "ACTIVITOUR"
+        }
+      ]
+    }
+  }
+}
+```
+
+#### <p align="center">QUERYING OUR FINAL ARTIST</p>
+
+```javascript
+query getIlluday {
+  getArtists(where: {field: "id", value: {stringValue: "xyseptoQ7WBBRr8XAl4U"}}) {
+    id
+    name
+    age
+    artworks {
+      id
+      name
+    }
+  }
+}
+```
+
+<p align="center">:arrow_down:</p><br>
+
+```javascript
+{
+  "data": {
+    "getArtists": [
+      {
+        "id": "xyseptoQ7WBBRr8XAl4U",
+        "name": "illuday",
+        "age": 28,
+        "artworks": [
+            {
+          		"id": "NmgdsLrNgzIiIUaRFkef",
+          		"name": "MIRAMARKA"
+        	},
+        	{
+         	 	"id": "WDwGd4LwjZGfsFEALOi7",
+          		"name": "NYNDOR"
+        	},
+        	{
+          		"id": "nTTtND8HyktG30IQzO5M",
+          		"name": "ACTIVITOUR"
+        	}
+        ]
+      }
+    ]
+  }
+}
+```
+
