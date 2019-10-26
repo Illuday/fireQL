@@ -162,6 +162,7 @@ mutation {
 ###### <p align="center">Mutation - Playground</p>
 
 <p align="center">:arrow_down:</p><br>
+
 ```json
 {
   "data": {
@@ -172,6 +173,7 @@ mutation {
   }
 }
 ```
+
 ###### <p align="center">Mutation result - Playground</p>
 
 In firestore, you can see that you have your document, added to artists collection with "illuday" as name and 28 as age.
@@ -256,6 +258,7 @@ query getAllArtists { # <-- This is just a name for GQL playground
 }
 ```
 <p align="center">:arrow_down:</p><br>
+
 ```javascript
 {
   "data": {
@@ -300,6 +303,7 @@ query getArtistById { # <-- This is just a name for GQL playground
 ```
 
 <p align="center">:arrow_down:</p><br>
+
 ```javascript
 {
   "data": {
@@ -313,6 +317,7 @@ query getArtistById { # <-- This is just a name for GQL playground
   }
 }
 ```
+
 <hr>
 
 #### <p align="center">GET ARTISTS BY AGE</p>
@@ -327,6 +332,7 @@ query getArtistsByAge { # <-- This is just a name for GQL playground
 ```
 
 <p align="center">:arrow_down:</p><br>
+
 ```javascript
 {
   "data": {
@@ -359,7 +365,7 @@ const schema = gql`
 `
 ```
 
-###### <p align="center">functions/graphql/schema.js</p>
+###### <p align="center">functions/graphql/types/artistType.graphql</p>
 
 ### 2 - Adding the mutation to our resolvers
 
