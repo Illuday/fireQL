@@ -1,14 +1,11 @@
 
-<p align="center"><img align="center" style="width:320px" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/Logo-FINAL-60fps.gif?alt=media&token=9564b776-d191-4cb2-9823-63093d2dbe25"/></p>
-<p align="center"><img align="center" style="width:200px" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/typo-01.svg?alt=media&token=a13e0fb9-54d9-40e1-8f98-eed082718fcc"/></p>
+<p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/Logo-FINAL-60fps.gif?alt=media&token=9564b776-d191-4cb2-9823-63093d2dbe25"/></p>
+<p align="center"><img align="center" width="300"src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/typo-01.svg?alt=media&token=a13e0fb9-54d9-40e1-8f98-eed082718fcc"/></p>
 <br><br>
 
 > FireQL is a GraphQL connector for Firestore (Firebase database). This repository offer a boilerplate to auto-host a GraphQL server on your Firebase Project (hosting part) connecting to Firestore on the same project.
 
 > **At the moment, use this repository at your own risk, I can't assure the continuity of this project. It'll depends of the popularity of it.**
-
-TO REMOVE : (functions/package.json - functions/graphql/* - functions/index.js - .gitignore - README.md)
-
 
 # <p align="center">Summary</p>
 
@@ -165,7 +162,7 @@ mutation {
 ```
 ###### <p align="center">Mutation - Playground</p>
 
-<center>:arrow_down:</center><br>
+<p align="center">:arrow_down:</p><br>
 
 ```json
 {
@@ -260,7 +257,7 @@ query getAllArtists {
   }
 }
 ```
-<center>:arrow_down:</center><br>
+<p align="center">:arrow_down:</p><br>
 
 ```javascript
 {
@@ -305,7 +302,7 @@ query getArtistById {
 }
 ```
 
-<center>:arrow_down:</center><br>
+<p align="center">:arrow_down:</p><br>
 
 ```javascript
 {
@@ -333,7 +330,7 @@ query getArtistsByAge {
 }
 ```
 
-<center>:arrow_down:</center><br>
+<p align="center">:arrow_down:</p><br>
 
 ```javascript
 {
