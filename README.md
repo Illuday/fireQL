@@ -16,6 +16,8 @@
 - **[#](#5) Update documents** – *Adding a mutation to our schema, to our resolvers, execute it*
 - **[#](#6) Remove documents** – *Adding a mutation to our schema, to our resolvers, execute it* - (in development)
 - **[#](#7) Working with relations** – *Updating our type, adding inputs, execute fun queries & mutations*
+- **[#](#8) Query your API from your application**
+- **[#](#9) What's next?**
 
 <br/><p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
 
@@ -709,4 +711,40 @@ query getIlluday {
   }
 }
 ```
+
+## <a name="8"></a>Query your API from your application
+
+You just have to use a GQL client (it's like an axios for restAPI), here are some :
+
+- Flutter: https://github.com/zino-app/graphql-flutter
+- VueJS: https://github.com/vuejs/vue-apollo
+- Nuxt: https://github.com/nuxt-community/apollo-module
+- ReactJS: https://github.com/apollographql/react-apollo
+- React Native: https://github.com/apollographql/apollo-client
+
+Or for React, Angular, Vue, Ember, Web Components, Meteor, Blaze, Vanilla JS, Next.js and I assume every javascript based framework: https://github.com/apollographql/apollo-client
+
+## <a name="9"></a>What's next?
+
+- [x] Connection to Firestore
+- [x] Hosting on Firebase cloud functions
+- [x] Playgrounds local & online
+- [x] Get documents
+- [x] Get documents with their relations
+- [x] Add documents
+- [x] Add documents and relation (create, connect)
+- [x] Update documents
+- [x] Update documents and their relations (create, connect, remove)
+- [ ] Remove documents
+- [ ] Remove documents and their relations
+- [ ] Handle authentication (Anonymous, phone, e-mail, Facebook, Google)
+- [ ] Simple security rules for queries & mutations
+- [ ] Subscriptions (for realtime data)
+- [ ] File upload to Firebase storage
+
+#### You can choose the feature you need the most:
+
+[![](https://api.gh-polls.com/poll/01DR6Y6WSZEMT0SCH1DT0TEM2K/Authentication%20%26%20Security)](https://api.gh-polls.com/poll/01DR6Y6WSZEMT0SCH1DT0TEM2K/Authentication%20%26%20Security/vote)
+[![](https://api.gh-polls.com/poll/01DR6Y6WSZEMT0SCH1DT0TEM2K/Subscriptions)](https://api.gh-polls.com/poll/01DR6Y6WSZEMT0SCH1DT0TEM2K/Subscriptions/vote)
+[![](https://api.gh-polls.com/poll/01DR6Y6WSZEMT0SCH1DT0TEM2K/File%20upload)](https://api.gh-polls.com/poll/01DR6Y6WSZEMT0SCH1DT0TEM2K/File%20upload/vote)
 
