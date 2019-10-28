@@ -7,10 +7,10 @@ const resolverFunctions = {
   },
   Mutation: {
     addArtist: (parent, document) => fireQL.add({ collectionName: 'artists', document }),
-    addArtwork: (parent, object) => fireQL.add('artworks', object),
+    addArtwork: (parent, document) => fireQL.add({ collectionName: 'artworks', document }),
 
     updateArtist: (parent, document) => fireQL.update({ collectionName: 'artists', document }),
-    updateArtwork: (parent, object) => fireQL.update('artworks', object) 
+    updateArtwork: (parent, document) => fireQL.update({ collectionName: 'artworks', document }) 
   }
 };
 
