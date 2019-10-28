@@ -63,6 +63,8 @@ $ firebase init
 ```
 ### Open GraphQL playground with function emulating
 
+Setup your Google credentials : https://firebase.google.com/docs/functions/local-emulator#set_up_admin_credentials_optional
+
 ```sh
  firebase emulators:start
 ```
