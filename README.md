@@ -726,6 +726,8 @@ You just have to use a GQL client (it's like an axios for restAPI), here are som
 
 Or for React, Angular, Vue, Ember, Web Components, Meteor, Blaze, Vanilla JS, Next.js and I assume every javascript based framework: https://github.com/apollographql/apollo-client
 
+<br/><p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
+
 ## <a name="9"></a>What's next?
 
 - [x] Connection to Firestore
@@ -743,6 +745,8 @@ Or for React, Angular, Vue, Ember, Web Components, Meteor, Blaze, Vanilla JS, Ne
 - [ ] Simple security rules for queries & mutations
 - [ ] Subscriptions (for realtime data)
 - [ ] File upload to Firebase storage
+
+<br/><p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
 
 #### You can choose the feature you need the most:
 
