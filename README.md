@@ -1,7 +1,7 @@
 
 
-<p align="center"><img align="center" src="/Illuday/fireQL/raw/master/.github/logo.gif"/></p>
-<p align="center"><img align="center" width="300"src="/Illuday/fireQL/raw/master/.github/typo.svg"/></p>
+<p align="center"><img align="center" src="/.github/logo.gif"/></p>
+<p align="center"><img align="center" width="300"src="/.github/typo.svg"/></p>
 <br><br>
 
 # <p align="center">Warning</p>
@@ -9,7 +9,7 @@
 > 🛑🛑 This repository is no longer maintained due to my lack of interest today for this technology. I'm now working on the Napi technology - https://getnapi.com. I added all the sources of the NPM library by the way. Feel free to do whatever you want with it. See you soon! 🛑🛑
 
 
-<br/><p align="center"><img align="center" src="/Illuday/fireQL/raw/master/.github/badge.png"/></p><br/>
+<br/><p align="center"><img align="center" src="/.github/badge.png"/></p><br/>
 
 
 > FireQL is a GraphQL connector for Firestore (Firebase database). This repository offer a boilerplate to auto-host a GraphQL server on your Firebase Project (hosting part) connecting to Firestore on the same project.
@@ -28,7 +28,7 @@
 - **[#](#8) Query your API from your application**
 - **[#](#9) What's next?**
 
-<br/><p align="center"><img align="center" src="/Illuday/fireQL/raw/master/.github/badge.png"/></p>
+<br/><p align="center"><img align="center" src="/.github/badge.png"/></p>
 
 
 ## <a name="1"></a>Getting started
@@ -107,7 +107,7 @@ Playground is running! **You have to copy/paste your api link (url above) in the
 
 Todo.
 
-<br/><p align="center"><img align="center" src="/Illuday/fireQL/raw/master/.github/badge.png"/></p>
+<br/><p align="center"><img align="center" src="/.github/badge.png"/></p>
 
 ## <a name="2"></a>Create a first type
 
@@ -124,7 +124,7 @@ type Artist {
 ```
 ###### <p align="center">functions/graphql/types/artistType.graphql</p><br>
 
-<p align="center"><img align="center" src="/Illuday/fireQL/raw/master/.github/badge.png"/></p>
+<p align="center"><img align="center" src="/.github/badge.png"/></p>
 
 ## <a name="3"></a>Add document to our type
 
@@ -194,7 +194,7 @@ Magic.
 
 #### We'll come back later on adding, with more powerful add!
 
-<br/><p align="center"><img align="center" src="/Illuday/fireQL/raw/master/.github/badge.png"/></p>
+<br/><p align="center"><img align="center" src="/.github/badge.png"/></p>
 
 ## <a name="4"></a>Get documents
 
@@ -358,7 +358,7 @@ query getArtistsByAge { # <-- This is just a name for GQL playground
 }
 ```
 
-<br/><p align="center"><img align="center" src="/Illuday/fireQL/raw/master/.github/badge.png"/></p>
+<br/><p align="center"><img align="center" src="/.github/badge.png"/></p>
 
 ## <a name="5"></a>Update document
 
@@ -421,7 +421,7 @@ mutation updateIlludayAge { # <-- This is just a name for GQL playground
 }
 ```
 
-#### <p align="center"><img align="center" src="/Illuday/fireQL/raw/master/.github/badge.png"/></p>
+#### <p align="center"><img align="center" src="/.github/badge.png"/></p>
 
 ## <a name="6"></a>Removing document - (in development)
 
@@ -479,7 +479,7 @@ mutation removeIlluday { # <-- This is just a name for GQL playground
 ```
 
 
-#### <p align="center"><img align="center" src="/Illuday/fireQL/raw/master/.github/badge.png"/></p>
+#### <p align="center"><img align="center" src="/.github/badge.png"/></p>
 
 ## <a name="7"></a>Working with relations
 
@@ -723,7 +723,7 @@ query getIlluday {
 }
 ```
 
-<br/><p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
+<br/><p align="center"><img align="center" src="/.github/badge.png"/></p>
 
 ## <a name="8"></a>Query your API from your application
 
@@ -737,7 +737,7 @@ You just have to use a GQL client (it's like an axios for restAPI), here are som
 
 Or for React, Angular, Vue, Ember, Web Components, Meteor, Blaze, Vanilla JS, Next.js and I assume every javascript based framework: https://github.com/apollographql/apollo-client
 
-<br/><p align="center"><img align="center" src="https://firebasestorage.googleapis.com/v0/b/illuday.appspot.com/o/badge.png?alt=media&token=47b4fb96-6b8d-44b1-848d-0b1c143203db"/></p>
+<br/><p align="center"><img align="center" src="/.github/badge.png"/></p>
 
 ## <a name="9"></a>What's next?
 
