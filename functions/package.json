@@ -17,7 +17,7 @@
     "firebase-admin": "~8.0.0",
     "firebase-functions": "^3.1.0",
     "merge-graphql-schemas": "^1.7.0",
-    "@illuday/fireql": "^1.0.0"
+    "@illuday/fireql": "^1.0.1"
   },
   "devDependencies": {
     "firebase-functions-test": "^0.1.6"
