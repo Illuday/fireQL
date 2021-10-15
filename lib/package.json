@@ -1,0 +1,25 @@
+{
+  "name": "@illuday/fireql",
+  "version": "1.0.0",
+  "description": "GraphQL interface for Firestore",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "graphql",
+    "firestore",
+    "firebase"
+  ],
+  "author": {
+    "name": "illuday",
+    "email": "manu@illuday.com"
+  },  
+  "dependencies": {
+    "firebase-admin": "~8.0.0",
+    "firebase-functions": "^3.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
